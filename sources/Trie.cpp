@@ -9,11 +9,13 @@ const size_t max_sigma=26;
 class Trienode
 {
 private:
+    //儿子节点指针,使用定长数组，保证边的增加、访问、删除在O(1)时间内完成
     Trienode *next[max_sigma];
     int size;
     bool istail;
 public:
     Trienode(){
+		//初始化时，节点的度数为0，next指针全部赋空值
         memset(next, 0, sizeof(next));
         size=0;
         istail=false;
